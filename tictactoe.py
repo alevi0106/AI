@@ -28,6 +28,7 @@ def fb(a,b,c):
 		return b
 	elif board[c]==2:
 		return c
+	return a
 
 def Make():
 	if board[5]==2:
