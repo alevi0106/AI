@@ -81,6 +81,23 @@ def iswin(turn):
 		return 1
 	return 0
 
+def isdraw(turn):
+	posx=posy=0
+	for i in range(1,10):
+		if board[i]==3:
+			if i%2!=0:
+				posx+=1
+		elif board[i]==5:
+			if i%2!=0:
+				posy+=1
+	#print(posx,posy)
+	if(posx==3 and posy==1 and board[5]==3):
+		return True
+	elif(posx==3 and posy==2 and board[5]==5):
+		return True
+	else: return False
+	return True
+
 val=int(input("Choose 3 for 'X' or 5 for 'O':\n"))
 if val==3:
 	tempvar1=1
@@ -172,5 +189,10 @@ for turn in range(1,10):
 			var=iswin(turn)
 			if var==1:
 				break
+	if turn==5:
+		if isdraw(turn)==False:
+			print("Match will be draw")
+			break
+
 
 
