@@ -92,7 +92,7 @@ def isdraw(turn):
 				posy+=1
 	#print(posx,posy)
 	if(posx==3 and posy==1 and board[5]==3):
-		return True
+		return False
 	elif(posx==3 and posy==2 and board[5]==5):
 		return False
 	else: return True
