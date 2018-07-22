@@ -95,7 +95,8 @@ def isdraw(turn):
 		return False
 	elif(posx==3 and posy==2 and board[5]==5):
 		return False
-	else: return True
+	elif Posswin("O")==0:
+		return True
 	return False
 
 val=int(input("Choose 3 for 'X' or 5 for 'O':\n"))
