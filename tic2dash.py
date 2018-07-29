@@ -46,44 +46,40 @@ def Make():
 	elif board[8]==2:
 		return 8
 	 
-def Posswin(p):
-	if p=="X":
+def Posswin(pos):
+	if pos=="X":
 		for i in range(0,5):
 			if play1[i]!=0:
 				for j in range(i+1,5):
-					if 0<(15-(play1[i]+play1[j]))<10:
+					if 0<(15-(play1[i]+play1[j]))<10 and play1[j]!=0:
 						p=15-(play1[i]+play1[j])
 						for k in range(1,10):
-							if trick[k]==p:
-								if board[k]==2:	
-									return k
+							if trick[k]==p and board[k]==2:
+								return k
 
-	if p=="O":
+	if pos=="O":
 		for i in range(0,5):
 			if play2[i]!=0:
 				for j in range(i+1,5):
-					if 0<(15-(play2[i]+play2[j]))<10:
+					if 0<(15-(play2[i]+play2[j]))<10 and play2[j]!=0:
 						p=15-(play2[i]+play2[j])
 						for k in range(1,10):
-							if trick[k]==p:
-								if board[k]==2:		
-									return k	
+							if trick[k]==p and board[k]==2:		
+								return k
 	return 0
 
-def iswin(turn):
-	if(board[1]*board[2]*board[3]==27 or board[4]*board[5]*board[6]==27 or board[7]*board[8]*board[9]==27 or 
-		board[1]*board[5]*board[9]==27 or board[3]*board[5]*board[7]==27 or 
-		board[1]*board[4]*board[7]==27 or board[2]*board[5]*board[8]==27 or board[3]*board[6]*board[9]==27):
-		print("Winner is X")
-		return 1
-	elif(board[1]*board[2]*board[3]==125 or board[4]*board[5]*board[6]==125 or board[7]*board[8]*board[9]==125 or 
-		board[1]*board[5]*board[9]==125 or board[3]*board[5]*board[7]==125 or 
-		board[1]*board[4]*board[7]==125 or board[2]*board[5]*board[8]==125 or board[3]*board[6]*board[9]==125):
-		print("Winner is O")
-		return 1
-	elif turn==9:
-		print("Match Draw")
-		return 1
+def iswin():
+	for i in range(0,2):
+		for j in range(i+1,3):
+			for k in range(j+1,4):
+				if play1[i]+play1[j]+play1[k]==15 and play1[k]!=0:
+					print(play1[i],play1[j],play1[k])
+					print("Winner is X")
+					return 1
+				elif play2[i]+play2[j]+play2[k]==15 and play2[k]!=0:
+					print(play2[i],play2[j],play2[k])
+					print("Winner is O")
+					return 1
 	return 0
 
 
@@ -94,10 +90,8 @@ if val==3:
 elif val==5:
 	tempvar1=0
 	tempvar2=1
-k=0
-l=0
+k=l=0
 for turn in range(1,10):
-	print(play1,play2)
 	if turn%2==tempvar1:
 		cross=int(input("Where to mark?\n"))
 		board[cross]=val
@@ -108,40 +102,37 @@ for turn in range(1,10):
 			play2[l]=trick[cross]
 			l+=1
 		draw()
-		var=iswin(turn)
-		if var==1:
+		if iswin()==1:
 			break
+		elif turn==9:
+			print("Match is draw")
 	elif turn%2==tempvar2:
 		print("AI turn")
 		if turn==1:
 			Go(1,turn,k,l)
 			draw()
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==2:
 			if board[5]==2:
 				Go(5,turn,k,l)
 			else:Go(1,turn,k,l)
 			draw()			
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==3:
 			if board[9]==2:
 				Go(9,turn,k,l)
 			else:Go(3,turn,k,l)
 			draw()			
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==4:
 			if Posswin("X")!=0:
 				Go(Posswin("X"),turn,k,l)
 			else:Go(Make(),turn,k,l)
 			draw()			
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==5:
 			if Posswin("X")!=0:
@@ -152,8 +143,7 @@ for turn in range(1,10):
 				Go(7,turn,k,l)
 			else:Go(3,turn,k,l)
 			draw()
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==6:
 			if Posswin("O")!=0:
@@ -162,19 +152,16 @@ for turn in range(1,10):
 				Go(Posswin("X"),turn,k,l)
 			else:Go(Make(),turn,k,l)
 			draw()
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
-		if turn==7 or turn==9:
+		if turn==7:
 			if Posswin("X")!=0:
 				Go(Posswin("X"),turn,k,l)
 			elif Posswin("O")!=0:
 				Go(Posswin("O"),turn,k,l)
-			else:
-				Go(fb(fb(1,2,3),fb(4,5,6),fb(7,8,9)),turn,k,l)
+			else:Go(fb(fb(1,2,3),fb(4,5,6),fb(7,8,9)),turn,k,l)
 			draw()
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
 		if turn==8:
 			if Posswin("O")!=0:
@@ -183,9 +170,18 @@ for turn in range(1,10):
 				Go(Posswin("X"),turn,k,l)
 			else:Go(fb(fb(1,2,3),fb(4,5,6),fb(7,8,9)),turn,k,l)
 			draw()
-			var=iswin(turn)
-			if var==1:
+			if iswin()==1:
 				break
+		if turn==9:
+			if Posswin("X")!=0:
+				Go(Posswin("X"),turn,k,l)
+			elif Posswin("O")!=0:
+				Go(Posswin("O"),turn,k,l)
+			else:Go(fb(fb(1,2,3),fb(4,5,6),fb(7,8,9)),turn,k,l)
+			draw()
+			if iswin()==1:
+				break
+			print("Match is draw")
 		if val==3:
 			l+=1
 		else:k+=1
