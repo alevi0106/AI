@@ -57,7 +57,7 @@ class waterjug{
 				if(jug1==d)
 				break;
 			}
-			if(jug1+jug2>4 && jug2>0){
+			if(jug1+jug2>x && jug2>0){
 				jug2=jug2-(x-jug1);
 				jug1=x;
 				System.out.println("JUG1="+jug1+",JUG2="+jug2);
