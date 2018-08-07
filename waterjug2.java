@@ -69,3 +69,85 @@ class waterjug2{
 		}
 	}
 }
+
+/*
+Output:
+Enter value of capacity of jug1, capacity of jug2, to be filled capacity
+Provided c(jug1)>c(jug2)
+4
+3
+2
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+1
+JUG1=0,JUG2=3
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+5
+JUG1=3,JUG2=0
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+1
+JUG1=3,JUG2=3
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+7
+JUG1=4,JUG2=2
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+4
+JUG1=0,JUG2=2
+
+1:Fill 3G 
+2:Fill 4G
+3:Empty 3G
+4:Empty 4G
+5:Transfer all water form 3G to 4G
+6:Transfer all water form 4G to 3G
+7:Transfer some water form 3G to 4G
+8:Transfer some water form 4G to 3G
+ 
+5
+JUG1=2,JUG2=0
+
+*/
