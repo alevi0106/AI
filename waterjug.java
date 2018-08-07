@@ -73,3 +73,27 @@ class waterjug{
 		}
 	}
 }
+/*
+Output:
+Enter value of capacity of jug1, capacity of jug2, to be filled capacity
+Provided c(jug1)>c(jug2)
+4
+3
+2
+Solution1:
+JUG1=4,JUG2=0
+JUG1=1,JUG2=3
+JUG1=1,JUG2=0
+JUG1=0,JUG2=1
+JUG1=4,JUG2=1
+JUG1=2,JUG2=3
+
+Solution2:
+JUG1=0,JUG2=3
+JUG1=3,JUG2=0
+JUG1=3,JUG2=3
+JUG1=4,JUG2=2
+JUG1=0,JUG2=2
+JUG1=2,JUG2=0
+
+*/
