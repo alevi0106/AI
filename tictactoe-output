@@ -1,0 +1,98 @@
+tictactoe program2
+output
+Choose 3 for 'X' or 5 for 'O':
+5
+AI turn
+ X |   |  
+   |   |  
+   |   |  
+
+Where to mark?
+3
+ X |   | O
+   |   |  
+   |   |  
+
+AI turn
+ X |   | O
+   |   |  
+   |   | X
+
+Where to mark?
+5
+ X |   | O
+   | O |  
+   |   | X
+
+AI turn
+ X |   | O
+   | O |  
+ X |   | X
+
+Where to mark?
+4
+ X |   | O
+ O | O |  
+ X |   | X
+
+AI turn
+ X |   | O
+ O | O |  
+ X | X | X
+
+Winner is X
+
+tictactoe program2 dash
+Choose 3 for 'X' or 5 for 'O':
+3
+Where to mark?
+5
+   |   |  
+   | X |  
+   |   |  
+
+AI turn
+ O |   |  
+   | X |  
+   |   |  
+
+Where to mark?
+3
+ O |   | X
+   | X |  
+   |   |  
+
+AI turn
+ O |   | X
+   | X |  
+ O |   |  
+
+Where to mark?
+4
+ O |   | X
+ X | X |  
+ O |   |  
+
+AI turn
+ O |   | X
+ X | X | O
+ O |   |  
+
+Where to mark?
+8
+ O |   | X
+ X | X | O
+ O | X |  
+
+AI turn
+ O | O | X
+ X | X | O
+ O | X |  
+
+Where to mark?
+9
+ O | O | X
+ X | X | O
+ O | X | X
+
+Match is draw
