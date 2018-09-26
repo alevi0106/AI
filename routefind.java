@@ -33,7 +33,7 @@ class routefind{
 		for(int i=0;i<n;i++)
 			h[i]=sc.nextInt();
 			
-		int gofn=0,fofn,hofn,cost=0,k=0,temp=0;
+		int gofn=0,fofn,hofn,cost=0,k=0,temp=0,one=1,same=0;
 		hofn=h[k];
 		fofn=gofn+hofn;
 		cost+=gofn;
@@ -43,16 +43,20 @@ class routefind{
 		{
 			System.out.print("-");
 			for(int i=k+1;i<n;i++)
-				if(a[k][i]!=0 && (h[i]+a[k][i])<=fofn)
+				if(a[k][i]!=0 && ((h[i]+gofn+a[k][i])<=fofn)||one==1)
 				{
-					fofn=a[k][i]+h[i];
+					one=0;
+					gofn=same+a[k][i];
+					fofn=gofn+h[i];
 					temp=i;
 				}
 			hofn=h[temp];
-			gofn=a[k][temp];
-			cost+=gofn;
+			same=gofn;
+			cost+=a[k][temp];
 			k=temp;
 			System.out.print(k);
+			one=1;
+
 		}
 		System.out.println("\nCost="+cost);
 	}
